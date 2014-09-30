@@ -3,38 +3,47 @@
  */
 import java.util.ArrayList;
 public class Pen {
-    private static ArrayList<Animal> Adult = new ArrayList<Animal>();
-    private ArrayList<BabyAnimal> Baby = new ArrayList<BabyAnimal>();
+    private ArrayList<Animal> adult = new ArrayList<Animal>();
+    private ArrayList<BabyAnimal> baby = new ArrayList<BabyAnimal>();
+
+    public ArrayList<BabyAnimal> getBaby() {
+        return baby;
+    }
+
+    public ArrayList<Animal> getAdult() {
+        return adult;
+    }
 
     public ArrayList<Animal> getAnimal() {
-        return Adult;
+        return adult;
     }
 
-    public void setAnimal(ArrayList<Animal> Adult) {
-        this.Adult = Adult;
+
+    public void addNewAdultAnimal(Animal animalToAdd) {
+       adult.add(animalToAdd);
     }
 
-    public static void addNewAdultAnimal(Animal animalToAdd) {
-       Adult.add(animalToAdd);
+    public void removeAdultAnimal (Animal animalToRemove) {
+        adult.remove(animalToRemove);
     }
 
-    public static void animalRemoval (String animalToRemove) {
-        Adult.remove(animalToRemove);
-    }
+    public  Animal searchForAnimalBySpecies(String species) {
 
-    public static Animal searchForAnimalBySpecies(String species) {
-
-        for (Animal searchItem : Adult) {
+        for (Animal searchItem : adult) {
             if (searchItem.getSpecies().equals(species)) {
                 ZooInterface.displayItemFound();
                 return searchItem;
             }
         }
+        return null;
+    }
 
-//
-//        myInterface.displayItemNotFound();
-//        return null;
-//    }
+    public int getSize(){
+        int size = adult.size() + baby.size();
+        return size;
+    }
+
+
 //
 //    public void displayAllBooks() {
 //        for (Book currentBook : libraryBooks) {

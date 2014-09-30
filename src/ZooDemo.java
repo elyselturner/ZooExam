@@ -3,10 +3,8 @@
  */
 public class ZooDemo {
     public static void main(String[] args) {
-    ZooIndex myZoo = new ZooIndex();
- }
+        ZooIndex myZoo = new ZooIndex();
 
-    public void myZoo() {
-
+        myZoo.routeEverything();
     }
 }

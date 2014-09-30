@@ -1,3 +1,4 @@
+import java.util.ArrayList;
 import java.util.Scanner;
 
 /**
@@ -5,9 +6,16 @@ import java.util.Scanner;
  */
 public class ZooIndex {
     public void routeEverything(){
-        Animal adultAnimal = new Animal();
-        BabyAnimal baby = new BabyAnimal();
+        Animal adultAnimal = new Animal("Dog", "medium", "female");
+        BabyAnimal baby = new BabyAnimal("brown", "grey", "Dog", "medium", "male");
         Pen animalPen = new Pen();
+        Zoo bigZoo = new Zoo();
+
+        bigZoo.getPens().add(animalPen);
+
+        bigZoo.getPens().size();
+
+        bigZoo.getPens().remove();
 
         Scanner newScanner = new Scanner(System.in);
 
@@ -20,11 +28,11 @@ public class ZooIndex {
 
             if (choice.equals("1")) {
                 Animal animalToAdd = ZooInterface.makeNewAnimal();
-                Pen.addNewAdultAnimal(animalToAdd);
+                animalPen.addNewAdultAnimal(animalToAdd);
             } else if (choice.equals("2")) {
                 String animalToDelete = ZooInterface.animalToRemove();
-                Animal  = animalPen.searchForAnimalBySpecies(animalToDelete);
-                animalPen.animalRemoval(adultAnimal);
+                Animal someAnimal  = animalPen.searchForAnimalBySpecies(animalToDelete);
+                animalPen.removeAdultAnimal(someAnimal);
 
             }
 //            else if (choice.equals("3")) {
@@ -39,7 +47,6 @@ public class ZooIndex {
 //            librarian.promptForNextEntry();
 //        }
 //
-//    } while (!selection.equals("5"));
-//}
-//            }
-//        }
+         } while (!choice.equals("5"));
+    }
+ }
