@@ -10,10 +10,6 @@ public class Pen {
         return baby;
     }
 
-    public ArrayList<Animal> getAdult() {
-        return adult;
-    }
-
     public ArrayList<Animal> getAnimal() {
         return adult;
     }
@@ -23,7 +19,15 @@ public class Pen {
        adult.add(animalToAdd);
     }
 
+    public void addNewBabyAnimal(BabyAnimal animalToAdd) {
+        adult.add(animalToAdd);
+    }
+
     public void removeAdultAnimal (Animal animalToRemove) {
+        adult.remove(animalToRemove);
+    }
+
+    public void removeBabyAnimal (BabyAnimal animalToRemove) {
         adult.remove(animalToRemove);
     }
 
@@ -38,18 +42,37 @@ public class Pen {
         return null;
     }
 
+    public  BabyAnimal searchForBabyAnimalBySpecies(String species) {
+
+        for (BabyAnimal searchItem : baby) {
+            if (searchItem.getSpecies().equals(species)) {
+                ZooInterface.displayItemFound();
+                return searchItem;
+            }
+        }
+        return null;
+    }
+
     public int getSize(){
         int size = adult.size() + baby.size();
         return size;
     }
 
+    public void printOutAdultAnimalsInThisPen(){
+       String info = "";
+        for (Animal adultAnimal : adult){
+            info = info + adultAnimal.animalInformation() + "";
+        }
+        System.out.println(info);
+    }
 
-//
-//    public void displayAllBooks() {
-//        for (Book currentBook : libraryBooks) {
-//            myInterface.displayInfoForBook(currentBook);
-//        }
-//    }
+    public void printOutBabyAnimalsInThisPen(){
+        String info = "";
+        for (BabyAnimal babyAnimal : baby){
+            info = info + babyAnimal.babyAnimalInformation() + "";
+        }
+        System.out.println(info);
+    }
 
 
-            }
+}

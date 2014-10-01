@@ -5,17 +5,12 @@ import java.util.Scanner;
  * Created by elyseturner on 9/29/14.
  */
 public class ZooIndex {
-    public void routeEverything(){
+    public void routeEverything() {
         Animal adultAnimal = new Animal("Dog", "medium", "female");
         BabyAnimal baby = new BabyAnimal("brown", "grey", "Dog", "medium", "male");
         Pen animalPen = new Pen();
         Zoo bigZoo = new Zoo();
 
-        bigZoo.getPens().add(animalPen);
-
-        bigZoo.getPens().size();
-
-        bigZoo.getPens().remove();
 
         Scanner newScanner = new Scanner(System.in);
 
@@ -29,24 +24,41 @@ public class ZooIndex {
             if (choice.equals("1")) {
                 Animal animalToAdd = ZooInterface.makeNewAnimal();
                 animalPen.addNewAdultAnimal(animalToAdd);
+                routeEverything();
             } else if (choice.equals("2")) {
+                BabyAnimal babyAnimalToAdd = ZooInterface.makeNewBabyAnimal();
+                animalPen.addNewBabyAnimal(babyAnimalToAdd);
+                routeEverything();
+            } else if (choice.equals("3")) {
                 String animalToDelete = ZooInterface.animalToRemove();
-                Animal someAnimal  = animalPen.searchForAnimalBySpecies(animalToDelete);
+                Animal someAnimal = animalPen.searchForAnimalBySpecies(animalToDelete);
                 animalPen.removeAdultAnimal(someAnimal);
-
+                routeEverything();
+            } else if (choice.equals("4")) {
+                String babyAnimalToDelete = ZooInterface.babyAnimalToRemove();
+                BabyAnimal someAnimal = animalPen.searchForBabyAnimalBySpecies(babyAnimalToDelete);
+                animalPen.removeBabyAnimal(someAnimal);
+                routeEverything();
+            } else if (choice.equals("5")) {
+                bigZoo.addPen(animalPen);
+                routeEverything();
+            } else if (choice.equals("6")) {
+                bigZoo.listOutPenIndex();
+                bigZoo.removePen(ZooInterface.penToRemove());
+                routeEverything();
+            } else if (choice.equals("7")) {
+                animalPen.printOutBabyAnimalsInThisPen();
+                System.out.println();
+                animalPen.printOutAdultAnimalsInThisPen();
+                routeEverything();
+            } else if (choice.equals("8")) {
+                bigZoo.printOutZoo();
+                routeEverything();
             }
-//            else if (choice.equals("3")) {
-////            String searchTitle = myInterface.acceptBookTitleFromUser();
-//            librarian.searchForBookByTitle(searchTitle);
-//        } else if(choice.equals("4")) {
-//            myLibrary.displayAllBooks();
-//        } else if(choice.equals("5")) {
-//            librarian.printExitMessage();
-//            break;
-//        } else {
-//            librarian.promptForNextEntry();
-//        }
-//
-         } while (!choice.equals("5"));
+
+            while (!choice.equals("9")) ;
+
+        } while (!choice.equals("9"));
     }
- }
+}
+

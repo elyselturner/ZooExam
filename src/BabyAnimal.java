@@ -11,4 +11,24 @@ public class BabyAnimal extends Animal{
         this.furColor = furColor;
 
     }
+
+    public String getFurColor() {
+        return furColor;
+    }
+
+    public void setFurColor(String furColor) {
+        this.furColor = furColor;
+    }
+
+    public String getEyeColor() {
+        return eyeColor;
+    }
+
+    public void setEyeColor(String eyeColor) {
+        this.eyeColor = eyeColor;
+    }
+
+    public String babyAnimalInformation(){
+        return "Species: " + getSpecies() + " Size: " + getSize() + " Gender: "+ getGender() + " Fur color: "+ getFurColor() + " Eye color: " + getEyeColor();
+    }
 }

@@ -19,7 +19,23 @@ public class Zoo {
         }
     }
 
-    public void addPen(Pen pen){
+    public void addPen(Pen pen) {
         pens.add(pen);
+    }
+
+    public void printOutZoo() {
+        String info = "";
+        for (Pen zooPens : pens) {
+            zooPens.printOutAdultAnimalsInThisPen();
+            zooPens.printOutBabyAnimalsInThisPen();
+        }
+    }
+
+    public void listOutPenIndex() {
+        int index = 0;
+        for (Pen aPen : pens) {
+            System.out.println(String.valueOf(index++) + ": " + pens);
+        }
+
     }
 }

@@ -38,6 +38,10 @@ public class Animal {
         public void setSize(String size) {
             this.size = size;
         }
-    }
 
+
+        public String animalInformation(){
+            return "Species: " + getSpecies() + " Size: " + getSize() + " Gender: "+ getGender();
+        }
+}
 
